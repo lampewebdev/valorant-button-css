@@ -1,0 +1,138 @@
+button {
+    font-family: 'DIN Next LT Pro Bold';
+    font-size: 1.9rem;
+    font-weight: 400;
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 3rem;
+    padding: .7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--v-white);
+    border: 0;
+    background-color: transparent;
+}
+
+button:hover {
+    color: var(--v-white);
+}
+
+button::before, button::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(50% - .4rem);
+    content: '';
+    border: 1px solid var(--v-outline);
+    background-color: transparent;
+}
+
+button::before {
+    top: 0;
+    border-bottom: 0;
+}
+
+button::after {
+    bottom: 0;
+    border-top: 0;
+}
+
+/* Hover Effect */
+
+.hover-effect {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    content: '';
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transform: translateX(-100%) skew(-10deg);
+    background-color: var(--v-red);
+}
+
+button:hover .hover-effect {
+    transform: translateX(0) skew(-10deg);
+}
+
+/* LABEL  */
+
+.label {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.label:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+/* Label Text */
+
+.label-text {
+    position: relative;
+    z-index: 1;
+    display: block;
+    padding: 1.9rem 3rem;
+}
+
+/* Right Bottom Corner dot */
+
+.label-text:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: .6rem;
+    height: .6rem;
+    content: '';
+    transition: background-color .2s ease-in;
+    background-color: var(--v-black);
+}
+
+button:hover .label-text:after {
+    background-color: var(--v-white);
+}
+
+/* PRIMARY BUTTON */
+
+.primary {
+    color: var(--v-black);
+}
+
+.primary .label::before {
+    background-color: var(--v-white);
+}
+
+/* OUTLINE BUTTON */
+
+.outline {
+    color: var(--v-white);
+}
+
+.outline .label::before, .outline .label::after {
+    border: 1px solid var(--v-outline);
+}
+
+/* OUTLINE RED BUTTON */
+
+.outline+.red {
+    color: var(--v-red);
+}
+
+.outline+.red:hover {
+    color: var(--v-white);
+}
+
+.outline+.red .label::before, .outline+.red .label::after {
+    border-color: var(--v-red);
+}
